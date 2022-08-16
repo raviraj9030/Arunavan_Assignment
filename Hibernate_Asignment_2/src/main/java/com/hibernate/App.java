@@ -11,24 +11,7 @@ import org.hibernate.Transaction;
 import com.model.Customer;
 import com.model.Locker;
 import com.util.HibernateUtil;
-/*
-Customer -------OnetoOne -----> Locker (we are not making bidirectional (See the arrow))
-here Unidirectional relation exist -- bet customer and locker means 
-U can say Customer has one locker (But u can't say locker have customer)
 
----------------------case 1
-when u use @OneToOne -- in the Customer on the field of -- private Locker locker;
-Here no any child and parent relation bet customer and locker that time need to save 
-both object in the dB with the help of session
-
----------------------case 2
-But when u use @OneToOne(cascade = CascadeType.ALL) -- in the Customer on the field of -- private Locker locker;
-Customer is parent and locker is child -- and need to save only customer but remember
-in customer do not forget to set the locker object
-
-@JoinColumn(name="custLockerId") -- used in customer pojo to rename the column as given name
-which is foreign key of customer and primary key for locker
- */
 public class App {
 	public static void main(String[] args) {
 		SessionFactory sf = HibernateUtil.getSessionFactory();
